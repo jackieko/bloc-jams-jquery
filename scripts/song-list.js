@@ -4,7 +4,7 @@
       <tr>
         <td>
           <button>
-            <span class="song-numer">${index + 1}</span>
+            <span class="song-number">${index + 1}</span>
             <span class="ion-play"></span>
             <span class="ion-pause"></span>
           </button>
