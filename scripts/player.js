@@ -7,7 +7,7 @@ class Player {
   }
 
   getDuration() { //wrapper for this.soundObject
-    return this.soundObject.getDuration();
+    return this.currentlyPlaying.duration;
   }
 
   getTime() { //wrapper for this.soundObject
@@ -15,6 +15,7 @@ class Player {
   }
 
   playPause (song = this.currentlyPlaying) {
+    //$('#time-control .total-time').text(song.duration);
     if (this.currentlyPlaying !== song) {
       // Stop the currently playing sound file (even if nothing is playing)
       this.soundObject.stop();
@@ -46,6 +47,14 @@ class Player {
   setVolume (percent) {
     this.volume = percent;
     this.soundObject.setVolume(percent);
+  }
+
+  prettyTime (timeInSeconds) {
+    var seconds = Math.ceil(timeInSeconds)%60;
+    if (seconds < 10) {
+      seconds =  "0" + seconds;
+    }
+    return Math.floor(timeInSeconds/60) + ":" + seconds;
   }
 }
 
